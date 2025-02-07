@@ -28,8 +28,7 @@ function Todolist() {
   
     return (
       <div className='container mx-auto mt-10 mb-10 '>
-        <h1 className='text-2xl font-bold text-center'>ToDo</h1>
-       <form className='flex flex-col items-center  justify-center mt-10 mb-10 gap-5   p-5 transition duration-500 ease-in-out '>
+       <form className='flex flex-col items-center  justify-center mt-10 mb-10 gap-5  sheadow-lg p-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110'>
         <input  className='border border-black p-2 raunded-md' onChange={(e)=>setName(e.target.value)} type="text" placeholder='Ismingizni kiriting' />
         <input className='border border-black p-2 raunded-md' onChange={(e)=>setPrice(e.target.value)} type="text" placeholder='Narhni kiriting' />
         <button className='border border-black p-2 raunded-md' onClick={addProduct}>ADD</button>

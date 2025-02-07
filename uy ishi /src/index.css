@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.scrollab{
+  -ms-overflow-style: none;  /* Internet Explorer uchun */
+  scrollbar-width: none; /* Firefox uchun */
+}
+
+.scrollab::-webkit-scrollbar {
+  display: none; /* Chrome va Safari uchun */
+}
+

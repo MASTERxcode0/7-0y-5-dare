@@ -1,19 +1,29 @@
-import React from 'react'
-import useDarcState from '../store/Darc'
+import React from "react";
+import useDarcState from "../store/useDarc";
 
-function LiteDarc() {
-    const { darc, setDarc } = useDarcState()
-    
-    function hendalDarc() { 
-        setDarc() 
-    }
+function DarkModeToggle() {
+  const { darc, toggleDarc, setDarc } = useDarcState();
 
-    return (
-        <div style={{ backgroundColor: darc ? 'black' : 'white' }} className='w-100 p-5 text-center mt-5 mx-auto'>
-            <h1 style={{ color: darc ? 'white' : 'black' }} >Salom</h1>
-            <button className='border p-2' onClick={hendalDarc}>Dark</button>
-        </div>
-    )
+  return (
+    <div
+      className={`flex flex-col items-center justify-center min-h-screen ${
+        darc ? "bg-gray-900 text-white" : "bg-white text-gray-900"
+      }`}
+    >
+      <h1 className="text-3xl font-bold mb-5">
+        {darc ? "Let" : "Darc"}
+      </h1>
+      <div className="flex flex-col gap-4">
+        <button
+          onClick={toggleDarc}
+          className="px-4 py-2 border  "
+        >
+         Dark Mode
+        </button>
+        
+      </div>
+    </div>
+  );
 }
 
-export default LiteDarc
+export default DarkModeToggle;

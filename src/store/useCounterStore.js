@@ -1,38 +1,31 @@
 import { create } from "zustand";
 
-const useCounterState = create((set) => {
-	return {
-		counter: [],
-		add: function (value) {
-			set( function(state){
-				let copide = [...state.counter];
-				copide.push(value);
-				return { counter: copide };
-			});
-		},
-		remove: function (id) {
-			set(function(state){
-				let copide = [...state.counter];
-				let filtered = copide.filter((item) => item.id !== id);
-				return { counter: filtered };
-			});
-		},
-		edite: function (value) {
-			set(function (state) {
-				let copide = [...state.counter];
-				copide = copide.map((c) => {
-					if (c.id == value.id) {
-						c = value;
-					}
-                    return c;
-				});
-				return { counter: copide };
-			});
-		},
-        clear: function(){
-            set({counter:[]})
-        }
-	};
-});
+const useCounterState = create((set) => ({
+  counter: [],
+
+  add: (value) => {
+    set((state) => ({
+      counter: [...state.counter, value],
+    }));
+  },
+
+  remove: (id) => {
+    set((state) => ({
+      counter: state.counter.filter((item) => item.id !== id),
+    }));
+  },
+
+  edit: (value) => {
+    set((state) => ({
+      counter: state.counter.map((item) =>
+        item.id === value.id ? value : item
+      ),
+    }));
+  },
+
+  clear: () => {
+    set({ counter: [] });
+  },
+}));
 
 export default useCounterState;
